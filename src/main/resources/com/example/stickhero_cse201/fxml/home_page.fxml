@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1366.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="272.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="271.739990234375">
+         <font>
+            <Font name="AXIS Extra Bold" size="148.0" />
+         </font>
+      </Text>
+      <Text layoutX="250.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HERO" textAlignment="CENTER" AnchorPane.bottomAnchor="887.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.739990234375" AnchorPane.topAnchor="263.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="180.0" />
+         </font>
+      </Text>
+      <Button layoutX="363.0" layoutY="894.0" mnemonicParsing="false" style="-fx-background-radius: 20; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="LOAD GAME" textAlignment="CENTER" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="363.0" AnchorPane.rightAnchor="362.5" AnchorPane.topAnchor="894.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="38.0" />
+         </font>
+      </Button>
+      <Rectangle fill="#666666" height="222.0" layoutX="401.0" layoutY="1144.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="222.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="401.0" AnchorPane.rightAnchor="401.0" AnchorPane.topAnchor="1144.0" />
+      <VBox layoutX="32.0" layoutY="1095.0" prefHeight="230.0" prefWidth="100.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="892.0" AnchorPane.topAnchor="1095.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" maxHeight="157.0" mnemonicParsing="false" prefHeight="195.0" prefWidth="157.0" style="-fx-background-position: center; -fx-background-image: url(&quot;../images/audio-on_toggle.png&quot;); -fx-background-size: 20px; -fx-background-radius: 50; -fx-min-width: 100; -fx-min-height: 100; -fx-max-height: 100; -fx-max-height: 100; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="volume toggle">
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" maxHeight="140.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" style="-fx-background-radius: 50; -fx-min-width: 100; -fx-min-height: 100; -fx-max-height: 100; -fx-max-height: 100; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="?" VBox.vgrow="SOMETIMES">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="AXIS Extra Bold" size="50.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Button layoutX="337.0" layoutY="511.0" mnemonicParsing="false" style="-fx-background-radius: 175; -fx-min-width: 350; -fx-min-height: 350; -fx-max-height: 350; -fx-max-width: 350; -fx-background-color: FF0000; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="PLAY!" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="505.0" AnchorPane.leftAnchor="337.0" AnchorPane.rightAnchor="337.0" AnchorPane.topAnchor="511.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="71.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="132.0" fitWidth="115.0" layoutX="455.0" layoutY="1018.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="1018.0">
+         <image>
+            <Image url="@../images/ninja_initial.png" />
+         </image></ImageView>
+      <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="852.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cherry.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="927.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
+         <font>
+            <Font name="AXIS Extra Bold" size="28.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

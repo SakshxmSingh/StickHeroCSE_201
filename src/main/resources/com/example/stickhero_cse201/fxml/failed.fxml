@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1366.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="214.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="214.0" AnchorPane.rightAnchor="631.5250091552734">
+         <font>
+            <Font name="AXIS Extra Bold" size="55.0" />
+         </font>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </Text>
+      <Text layoutX="213.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HERO" textAlignment="CENTER" AnchorPane.bottomAnchor="1208.0" AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="622.0449829101562" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="65.0" />
+         </font>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </Text>
+      <Rectangle fill="#666666" height="520.0" layoutY="846.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="222.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="802.0" AnchorPane.topAnchor="846.0">
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect></Rectangle>
+      <ImageView fitHeight="132.0" fitWidth="115.0" layoutX="53.0" layoutY="720.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="514.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="856.0" AnchorPane.topAnchor="720.0">
+         <image>
+            <Image url="@../images/ninja_initial.png" />
+         </image>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect></ImageView>
+      <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="852.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cherry.png" />
+         </image>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </ImageView>
+      <Text layoutX="927.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
+         <font>
+            <Font name="AXIS Extra Bold" size="28.0" />
+         </font>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </Text>
+      <Button layoutX="48.0" layoutY="48.0" maxHeight="140.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" style="-fx-background-radius: 50; -fx-min-width: 100; -fx-min-height: 100; -fx-max-height: 100; -fx-max-height: 100; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="| |" AnchorPane.bottomAnchor="1218.0" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="876.0" AnchorPane.topAnchor="48.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="44.0" />
+         </font>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </Button>
+      <Rectangle fill="#666666" height="520.0" layoutX="630.0" layoutY="846.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="134.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="630.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="846.0">
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect></Rectangle>
+      <ImageView fitHeight="62.0" fitWidth="53.0" layoutX="438.0" layoutY="864.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cherry.png" />
+         </image>
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </ImageView>
+      <Line endX="400.0" layoutX="317.0" layoutY="841.0" startX="-100.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="10.0" AnchorPane.bottomAnchor="520.0" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="560.5039672851562" AnchorPane.topAnchor="836.0">
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect></Line>
+      <Rectangle fill="RED" height="13.0" layoutX="690.0" layoutY="847.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="13.0" AnchorPane.bottomAnchor="506.0" AnchorPane.leftAnchor="690.0" AnchorPane.rightAnchor="321.0" AnchorPane.topAnchor="847.0">
+         <effect>
+            <BoxBlur height="29.14" iterations="3" width="29.14" />
+         </effect>
+      </Rectangle>
+      <Rectangle fill="#0000006d" height="1366.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="144.0" layoutY="218.0" maxHeight="930.0" maxWidth="736.0" minHeight="930.0" minWidth="736.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to bottom right, rgba(246, 246, 246, 0.35) -6.48%, #FFF 105.71%); -fx-background-radius: 35; -fx-border-color: grey; -fx-border-radius: 35; -fx-border-width: 3;" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="144.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="218.0">
+         <children>
+            <HBox layoutX="248.0" layoutY="716.0" prefHeight="100.0" prefWidth="237.0" spacing="30.0">
+               <children>
+                  <Button maxHeight="140.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" style="-fx-background-radius: 50; -fx-min-width: 100; -fx-min-height: 100; -fx-max-height: 100; -fx-max-height: 100; -fx-background-color: FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="reset">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur height="29.14" iterations="3" width="29.14" />
+                     </effect>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="10.0" maxHeight="140.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="100.0" style="-fx-background-radius: 50; -fx-min-width: 100; -fx-min-height: 100; -fx-max-height: 100; -fx-max-height: 100; -fx-background-color: FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="home">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur height="29.14" iterations="3" width="29.14" />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+            <Text layoutX="114.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="oops! x_x" textAlignment="CENTER">
+               <font>
+                  <Font name="AXIS Extra Bold" size="88.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutX="160.0" layoutY="272.0" maxHeight="360.0" maxWidth="412.0" minHeight="360.0" minWidth="412.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+               <effect>
+                  <DropShadow height="12.63" offsetY="5.0" radius="7.817500000000001" width="20.64">
+                     <color>
+                        <Color opacity="0.4894837439060211" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Text fill="RED" layoutX="73.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="continue?" textAlignment="CENTER">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="45.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="5.9" offsetY="1.0" radius="0.9750000000000001" width="0.0" />
+                     </effect>
+                  </Text>
+                  <Rectangle arcHeight="17.0" arcWidth="17.0" fill="#e4e4e4" height="148.0" layoutX="54.0" layoutY="135.0" stroke="#616161" strokeType="INSIDE" strokeWidth="6.0" width="316.0" />
+                  <ImageView fitHeight="96.0" fitWidth="84.0" layoutX="114.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/cherry.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="229.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxx">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="44.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text layoutX="257.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GIT GUD">
+               <font>
+                  <Font name="AXIS Extra Bold" size="51.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.23900572955608368" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>
