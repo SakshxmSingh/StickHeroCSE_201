@@ -1,2 +1,0 @@
-# StickHeroCSE_201
- 
