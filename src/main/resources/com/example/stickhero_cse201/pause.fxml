@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero_cse201.Controller">
+   <children>
+      <Text layoutX="107.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="315.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="36.0" />
+         </font>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </Text>
+      <Text layoutX="106.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HERO" textAlignment="CENTER" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="36.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="42.0" />
+         </font>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </Text>
+      <Rectangle fill="#666666" height="346.0" layoutX="0.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="452.0" AnchorPane.topAnchor="564.0">
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect></Rectangle>
+      <ImageView fitHeight="88.0" fitWidth="77.0" layoutX="26.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="508.0" AnchorPane.topAnchor="480.0">
+         <image>
+            <Image url="@images/ninja_initial.png" />
+         </image>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect></ImageView>
+      <ImageView fitHeight="49.0" fitWidth="71.0" layoutX="508.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </ImageView>
+      <Text layoutX="556.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
+         <font>
+            <Font name="AXIS Extra Bold" size="19.0" />
+         </font>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </Text>
+      <Button layoutX="21.0" layoutY="21.0" maxHeight="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="| |">
+         <font>
+            <Font name="AXIS Extra Bold" size="22.0" />
+         </font>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </Button>
+      <Rectangle fill="#666666" height="346.0" layoutX="420.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="89.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="420.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="564.0">
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect></Rectangle>
+      <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="292.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </ImageView>
+      <Line endX="266.0" layoutX="198.0" layoutY="561.0" startX="-66.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" AnchorPane.bottomAnchor="280.0" AnchorPane.leftAnchor="141.0" AnchorPane.rightAnchor="336.0" AnchorPane.topAnchor="558.0">
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect></Line>
+      <Rectangle fill="RED" height="7.0" layoutX="345.0" layoutY="564.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="7.0" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="345.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="564.0">
+         <effect>
+            <BoxBlur height="19.14" iterations="3" width="19.14" />
+         </effect>
+      </Rectangle>
+      <Rectangle fill="#0000006d" height="800.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane layoutX="86.0" layoutY="131.0" maxHeight="465.0" maxWidth="368.0" minHeight="465.0" minWidth="368.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="131.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="74.0" layoutY="355.0" prefHeight="50.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="355.0">
+               <children>
+                  <Button fx:id="resetButton" maxHeight="70.0" mnemonicParsing="false" onAction="#switchToPlayScreen" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="reset">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="10.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur height="19.14" iterations="3" width="19.14" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="homeButton" layoutX="5.0" layoutY="5.0" maxHeight="70.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="home">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="10.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur height="19.14" iterations="3" width="19.14" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="saveButton" layoutX="55.0" layoutY="5.0" maxHeight="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="save">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="10.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur height="19.14" iterations="3" width="19.14" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="volumeButton" layoutX="105.0" layoutY="5.0" maxHeight="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="Volume">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="8.0" />
+                     </font>
+                     <effect>
+                        <BoxBlur height="19.14" iterations="3" width="19.14" />
+                     </effect>
+                  </Button>
+               </children>
+            </HBox>
+            <Text fill="WHITE" layoutX="118.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAUSED" textAlignment="CENTER" AnchorPane.bottomAnchor="422.20000076293945" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="118.02798461914062" AnchorPane.topAnchor="63.0">
+               <font>
+                  <Font name="AXIS Extra Bold" size="44.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+            <Button fx:id="continueButton" layoutX="125.0" layoutY="160.0" maxHeight="178.0" maxWidth="178.0" minHeight="178.0" minWidth="178.0" mnemonicParsing="false" onAction="#switchToPlayScreen" style="-fx-background-radius: 89; -fx-background-color: RED;" text="CONTINUE" textFill="WHITE" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0">
+               <font>
+                  <Font name="AXIS Extra Bold" size="25.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

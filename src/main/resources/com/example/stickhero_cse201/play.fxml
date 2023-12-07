@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero_cse201.Controller">
+   <children>
+      <Text layoutX="100.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="383.1800003051758">
+         <font>
+            <Font name="AXIS Extra Bold" size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="97.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HERO" textAlignment="CENTER" AnchorPane.bottomAnchor="708.5999984741211" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="380.906005859375" AnchorPane.topAnchor="41.0">
+         <font>
+            <Font name="AXIS Extra Bold" size="42.0" />
+         </font>
+      </Text>
+      <Rectangle fill="#666666" height="346.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="452.0" AnchorPane.topAnchor="564.0" />
+      <ImageView fitHeight="88.0" fitWidth="77.0" layoutX="69.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="232.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="454.33333587646484" AnchorPane.topAnchor="480.0">
+         <image>
+            <Image url="@images/ninja_initial.png" />
+         </image></ImageView>
+      <ImageView fitHeight="49.0" fitWidth="71.0" layoutX="524.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="score" layoutX="459.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
+         <font>
+            <Font name="AXIS Extra Bold" size="18.0" />
+         </font>
+      </Text>
+      <Rectangle fx:id="platform" fill="#666666" height="346.0" layoutX="348.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="89.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="348.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="564.0" />
+      <ImageView fx:id="cherryObject" fitHeight="41.0" fitWidth="35.0" layoutX="222.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <Line endX="200.0" layoutX="191.5" layoutY="561.5" startX="-66.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" AnchorPane.bottomAnchor="235.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="558.0" />
+      <Rectangle fx:id="perfectLand" fill="RED" height="8.0" layoutX="390.0" layoutY="564.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="8.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="564.0" />
+      <Button fx:id="pauseButton" layoutX="26.0" layoutY="26.0" maxHeight="50.0" maxWidth="50.0" mnemonicParsing="false" onAction="#switchToPauseScreen" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 7, 0.5, 0.0, 0.0);" text="| |">
+         <font>
+            <Font name="AXIS Extra Bold" size="19.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
