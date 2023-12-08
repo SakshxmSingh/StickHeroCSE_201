@@ -78,14 +78,14 @@
       </Button>
       <ImageView fitHeight="132.0" fitWidth="115.0" layoutX="455.0" layoutY="1018.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="455.0" AnchorPane.rightAnchor="454.0" AnchorPane.topAnchor="1018.0">
          <image>
-            <Image url="@../images/ninja_initial.png" />
+            <Image url="@images/ninja_initial.png" />
          </image>
          <effect>
             <BoxBlur height="29.14" iterations="3" width="29.14" />
          </effect></ImageView>
       <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="852.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/cherry.png" />
+            <Image url="@images/cherry.png" />
          </image>
          <effect>
             <BoxBlur height="29.14" iterations="3" width="29.14" />
@@ -126,7 +126,7 @@
                         </Text>
                         <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="519.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/cherry.png" />
+                              <Image url="@images/cherry.png" />
                            </image>
                         </ImageView>
                         <Text layoutX="452.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xx">
@@ -153,7 +153,7 @@
                         </Text>
                         <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="519.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/cherry.png" />
+                              <Image url="@images/cherry.png" />
                            </image>
                         </ImageView>
                         <Text layoutX="452.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xx">
@@ -180,7 +180,7 @@
                         </Text>
                         <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="519.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/cherry.png" />
+                              <Image url="@images/cherry.png" />
                            </image>
                         </ImageView>
                         <Text layoutX="452.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xx">
@@ -207,7 +207,7 @@
                         </Text>
                         <ImageView fitHeight="74.0" fitWidth="107.0" layoutX="519.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/cherry.png" />
+                              <Image url="@images/cherry.png" />
                            </image>
                         </ImageView>
                         <Text layoutX="452.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xx">

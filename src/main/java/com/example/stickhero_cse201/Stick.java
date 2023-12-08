@@ -1,4 +1,4 @@
-package com.example.stickhero_cse201.GameFiles;
+package com.example.stickhero_cse201;
 
 public class Stick {
     private int minLen;
