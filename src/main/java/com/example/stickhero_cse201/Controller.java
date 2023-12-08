@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 public class Controller {
 
@@ -51,6 +52,13 @@ public class Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void controlLine(MouseEvent event) throws IOException {
+        Stick stick = new Stick();
+        stick.elongate(event);
+
     }
 }
 

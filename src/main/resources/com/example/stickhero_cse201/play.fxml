@@ -9,8 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero_cse201.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero_cse201.playControl">
    <children>
+      <Rectangle fx:id="areaToPress" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="710.0" layoutY="94.0" onMousePressed="#controlLine" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
       <Text layoutX="100.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="383.1800003051758">
          <font>
             <Font name="AXIS Extra Bold" size="36.0" />
@@ -42,7 +43,7 @@
             <Image url="@images/cherry.png" />
          </image>
       </ImageView>
-      <Line endX="200.0" layoutX="191.5" layoutY="561.5" startX="-66.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" AnchorPane.bottomAnchor="235.0" AnchorPane.leftAnchor="122.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="558.0" />
+      <Line fx:id="stick" endX="-66.0" layoutX="191.5" layoutY="561.5" startX="-66.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" />
       <Rectangle fx:id="perfectLand" fill="RED" height="8.0" layoutX="390.0" layoutY="564.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="8.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="564.0" />
       <Button fx:id="pauseButton" layoutX="26.0" layoutY="26.0" maxHeight="50.0" maxWidth="50.0" mnemonicParsing="false" onAction="#switchToPauseScreen" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 7, 0.5, 0.0, 0.0);" text="| |">
          <font>
