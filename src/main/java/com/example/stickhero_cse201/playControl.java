@@ -58,7 +58,7 @@ public class playControl {
     private Line stick;
 
     @FXML
-    private void controlLine(MouseEvent event) {
+    private double controlLine(MouseEvent event) {
 
         // Create a new timeline for each mouse press
         Timeline timeline = new Timeline();
@@ -93,7 +93,11 @@ public class playControl {
 
             // Play the rotation animation
             rotateTimeline.play();
+
         });
+        System.out.println(stick.getEndY());
+        return stick.getStartY();
+
     }
 
 
