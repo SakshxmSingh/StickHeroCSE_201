@@ -23,7 +23,7 @@
          </font>
       </Text>
       <Rectangle fill="#666666" height="346.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="452.0" AnchorPane.topAnchor="564.0" />
-      <ImageView fitHeight="88.0" fitWidth="77.0" layoutX="69.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="232.0" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="454.33333587646484" AnchorPane.topAnchor="480.0">
+      <ImageView fx:id="player" fitHeight="57.0" fitWidth="50.0" layoutX="87.0" layoutY="511.3333333333333" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="231.66666666666674" AnchorPane.leftAnchor="87.0" AnchorPane.rightAnchor="463.3409080505371" AnchorPane.topAnchor="511.3333333333333">
          <image>
             <Image url="@images/ninja_initial.png" />
          </image></ImageView>

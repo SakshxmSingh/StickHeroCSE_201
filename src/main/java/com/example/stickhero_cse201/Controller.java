@@ -54,11 +54,6 @@ public class Controller {
         stage.show();
     }
 
-    @FXML
-    private void controlLine(MouseEvent event) throws IOException {
-        Stick stick = new Stick();
-        stick.elongate(event);
 
-    }
 }
 

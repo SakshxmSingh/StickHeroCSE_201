@@ -43,6 +43,9 @@ public class playControl {
     private ImageView cherryObject;
 
     @FXML
+    private ImageView player;
+
+    @FXML
     private Button pauseButton;
 
     @FXML
@@ -56,47 +59,28 @@ public class playControl {
 
     @FXML
     private Line stick;
-
+    static int count;
+    double lineLength;
     @FXML
-    private double controlLine(MouseEvent event) {
+    private void controlLine(MouseEvent event) throws InterruptedException {
 
-        // Create a new timeline for each mouse press
-        Timeline timeline = new Timeline();
+        if (count != 1) {
+            lineLength = Stick.elongate(stick, areaToPress);
 
-        // Define the keyframe with the desired duration and endY value
-        KeyFrame keyFrame = new KeyFrame(Duration.seconds(5), new KeyValue(stick.endYProperty(), stick.getEndY() - 1000));
+            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), player);
+            translateTransition.setByX(-lineLength);
+            translateTransition.play();
+            count++;
 
-        // Add the keyframe to the timeline
-        timeline.getKeyFrames().add(keyFrame);
+            System.out.println("initial " + count);
+        }
+        if (count == 1) {
 
-        // Set the cycle count to indefinite to keep the animation running
-        timeline.setCycleCount(Timeline.INDEFINITE);
+            count--;
+            System.out.println(count);
 
-        // Play the timeline when the mouse is pressed
-        timeline.play();
+        }
 
-        // Stop the timeline and rotate the stick when the mouse is released
-        areaToPress.setOnMouseReleased(mouseReleasedEvent -> {
-            timeline.stop();
-
-            // Rotate the stick 90 degrees
-            // Get the top of the stick (end point, Y-coordinate)
-            double topY = stick.getStartY();
-
-            // Rotate the stick 90 degrees around its top
-            Rotate rotate = new Rotate(90, stick.getStartX(), topY);
-            stick.getTransforms().add(rotate);
-            Timeline rotateTimeline = new Timeline(
-                    new KeyFrame(Duration.ZERO, new KeyValue(rotate.angleProperty(), 0)),
-                    new KeyFrame(Duration.seconds(0.5), new KeyValue(rotate.angleProperty(), 90))
-            );
-
-            // Play the rotation animation
-            rotateTimeline.play();
-
-        });
-        System.out.println(stick.getEndY());
-        return stick.getStartY();
 
     }
 
