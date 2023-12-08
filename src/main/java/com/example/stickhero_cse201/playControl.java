@@ -1,11 +1,9 @@
 package com.example.stickhero_cse201;
 
 import javafx.animation.*;
-import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point3D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,17 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 
@@ -59,32 +47,77 @@ public class playControl {
 
     @FXML
     private Line stick;
-    static int count;
-    double lineLength;
-    @FXML
-    private void controlLine(MouseEvent event) throws InterruptedException {
 
-        if (count != 1) {
-            lineLength = Stick.elongate(stick, areaToPress);
+    private static int count = 0;
 
-            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), player);
-            translateTransition.setByX(-lineLength);
-            translateTransition.play();
-            count++;
-
-            System.out.println("initial " + count);
-        }
-        if (count == 1) {
-
-            count--;
-            System.out.println(count);
-
-        }
-
-
+    public static int getCount() {
+        return count;
+    }
+    public static void setCount(int count) {
+        playControl.count = count;
     }
 
+    double lineLength;
+    @FXML
+    private void onClick(MouseEvent event) throws InterruptedException {
 
+        if (count == 0) {
+            Timeline timeline = new Timeline();
+
+            // Define the keyframe with the desired duration and endY value
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(5), new KeyValue(stick.endYProperty(), stick.getEndY() - 1000));
+
+            // Add the keyframe to the timeline
+            timeline.getKeyFrames().add(keyFrame);
+
+            // Set the cycle count to indefinite to keep the animation running
+            timeline.setCycleCount(1);
+
+            // Play the timeline when the mouse is pressed
+            timeline.play();
+            playControl.setCount(playControl.getCount() + 1);
+
+            // Stop the timeline and rotate the stick when the mouse is released
+
+            areaToPress.setOnMouseReleased(mouseReleasedEvent -> {
+                timeline.stop();
+
+                // Rotate the stick 90 degrees
+                // Get the top of the stick (end point, Y-coordinate)
+                
+                if(playControl.getCount() == 1){
+                    
+                    lineLength = stick.getEndY();
+                    double topY = stick.getStartY();
+                        // Rotate the stick 90 degrees around its top
+                    Rotate rotate = new Rotate(90, stick.getStartX(), topY);
+                    stick.getTransforms().add(rotate);
+                    lineLength = stick.getEndY();
+                    Timeline rotateTimeline = new Timeline(
+                            new KeyFrame(Duration.ZERO, new KeyValue(rotate.angleProperty(), 0)),
+                            new KeyFrame(Duration.seconds(0.5), new KeyValue(rotate.angleProperty(), 90))
+                    );
+
+                    // Play the rotation animation
+                    rotateTimeline.play();
+                    playControl.setCount(playControl.getCount() + 1);
+                    rotateTimeline.setOnFinished(finishEvent -> {
+                        if(playControl.getCount() == 2){
+                            // Move the player to the end of the stick
+                            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), player);
+                            translateTransition.setByX(-lineLength);
+                            translateTransition.play();
+                            System.out.println("final " + lineLength);
+                        }
+                    });
+                }
+                
+
+            });
+
+        }
+    }
+        
 
     @FXML
     void switchToPauseScreen(ActionEvent event) throws IOException {
@@ -96,5 +129,5 @@ public class playControl {
 
     }
 
-    }
+}
 

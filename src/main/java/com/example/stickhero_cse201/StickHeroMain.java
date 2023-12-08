@@ -5,15 +5,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 public class StickHeroMain extends Application{
 
-    private ArrayList<Player> playerList;
-    private Player currentPlayer;
-    private Stick gameStick;
-    private Platform gamePlatform;
-    private int platformSpacing;
+    // private ArrayList<Player> playerList;
+    // private Player currentPlayer;
+    // private Stick gameStick;
+    // private Platform gamePlatform;
+    // private int platformSpacing;
     private Stage stage;
 
     public void addNewPlayer(){

@@ -11,7 +11,42 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stickhero_cse201.playControl">
    <children>
-      <Rectangle fx:id="areaToPress" arcHeight="5.0" arcWidth="5.0" fill="#ffdcdc" height="710.0" layoutY="94.0" onMousePressed="#controlLine" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Rectangle fx:id="areaToPress" arcHeight="5.0" arcWidth="5.0" fill="#ff000000" height="710.0" layoutY="94.0" onMousePressed="#onClick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <ImageView fitHeight="181.0" fitWidth="237.0" layoutX="444.0" layoutY="522.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="123.0" fitWidth="134.0" layoutX="53.0" layoutY="327.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="15.4">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="158.0" fitWidth="122.0" layoutX="129.0" layoutY="637.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="12.5">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="118.0" fitWidth="117.0" layoutX="-21.0" layoutY="147.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="-11.9">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="255.0" fitWidth="224.0" layoutX="247.0" layoutY="21.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="-25.2">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="111.0" fitWidth="93.0" layoutX="271.0" layoutY="385.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="-19.2">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="181.0" fitWidth="157.0" layoutX="484.0" layoutY="253.0" opacity="0.21" pickOnBounds="true" preserveRatio="true" rotate="36.0">
+         <image>
+            <Image url="@images/cherry.png" />
+         </image>
+      </ImageView>
       <Text layoutX="100.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="383.1800003051758">
          <font>
             <Font name="AXIS Extra Bold" size="36.0" />
@@ -27,12 +62,12 @@
          <image>
             <Image url="@images/ninja_initial.png" />
          </image></ImageView>
-      <ImageView fitHeight="49.0" fitWidth="71.0" layoutX="524.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="71.0" layoutX="530.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/cherry.png" />
          </image>
       </ImageView>
-      <Text fx:id="score" layoutX="459.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
+      <Text fx:id="score" layoutX="470.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX">
          <font>
             <Font name="AXIS Extra Bold" size="18.0" />
          </font>
@@ -43,7 +78,7 @@
             <Image url="@images/cherry.png" />
          </image>
       </ImageView>
-      <Line fx:id="stick" endX="-66.0" layoutX="191.5" layoutY="561.5" startX="-66.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" />
+      <Line fx:id="stick" endX="-66.0" layoutX="191.5" layoutY="561.5" onKeyPressed="#controlLine" startX="-66.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" />
       <Rectangle fx:id="perfectLand" fill="RED" height="8.0" layoutX="390.0" layoutY="564.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="8.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="564.0" />
       <Button fx:id="pauseButton" layoutX="26.0" layoutY="26.0" maxHeight="50.0" maxWidth="50.0" mnemonicParsing="false" onAction="#switchToPauseScreen" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 7, 0.5, 0.0, 0.0);" text="| |">
          <font>
