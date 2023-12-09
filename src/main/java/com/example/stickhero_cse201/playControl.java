@@ -17,9 +17,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Random;
+
 import javafx.util.Duration;
 
 
@@ -72,6 +75,11 @@ public class playControl {
 
     private Timeline platformMove;
 
+    private double x1;
+    private double x2;
+    private double startX;
+    private int correct;
+
     @FXML
     private void onClick(MouseEvent event) throws InterruptedException {
 
@@ -101,12 +109,13 @@ public class playControl {
                 
                 if(playControl.getCount() == 1){
                     
-                    lineLength = stick.getEndY();
+                    lineLength = stick.getEndY() - stick.getStartY();
+
                     double topY = stick.getStartY();
                         // Rotate the stick 90 degrees around its top
                     Rotate rotate = new Rotate(90, stick.getStartX(), topY);
                     stick.getTransforms().add(rotate);
-                    lineLength = stick.getEndY();
+                    lineLength = stick.getEndY() - stick.getStartY();
                     Timeline rotateTimeline = new Timeline(
                             new KeyFrame(Duration.ZERO, new KeyValue(rotate.angleProperty(), 0)),
                             new KeyFrame(Duration.seconds(0.5), new KeyValue(rotate.angleProperty(), 90))
@@ -115,7 +124,25 @@ public class playControl {
                     // Play the rotation animation
                     rotateTimeline.play();
                     playControl.setCount(playControl.getCount() + 1);
+
                     rotateTimeline.setOnFinished(finishEvent1 -> {
+                        startX = platformBase.getX() + (platformBase.getWidth()/2);
+                        x1 = platform.getLayoutX() -  (platform.getWidth()/2);
+                        x2 = platform.getLayoutX() +  (platform.getWidth()/2);
+                        System.out.println("the start and final" + x1 +" " + x2);
+                        if((-lineLength) + startX < x1 || (-lineLength) + startX > x2){
+                            try {
+                                switchToFailScreen(root);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                        else{
+                            correct++;
+                            score.setText(String.valueOf(correct));
+
+
+                        }
                         if (playControl.getCount() == 2) {
                             // Move the player to the end of the stick
                             // playerWalk = new TranslateTransition(Duration.seconds(1), player);
@@ -127,7 +154,8 @@ public class playControl {
 
                             playerWalk = new Timeline();
 
-                            KeyFrame playerKeyFrameRight = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), lineLength));
+                            KeyFrame playerKeyFrameRight = new KeyFrame(Duration.seconds(0.75), new KeyValue(player.translateXProperty(), -lineLength + player.getFitWidth()));
+                            System.out.println("the line length is " + lineLength);
                             playerWalk.getKeyFrames().add(playerKeyFrameRight);
                             playerWalk.setCycleCount(1);
                             playerWalk.play();
@@ -141,11 +169,12 @@ public class playControl {
                                     platformMove = new Timeline();
                             
                                     // Define the keyframe with the desired duration and translateX value
+                                    System.out.println(platform.getX() + "  " + platformBase.getX() + " " + platform.getLayoutX());
                                     KeyFrame platformKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platform.translateXProperty(), -(platform.getLayoutX() )));
                                     KeyFrame cherryKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(cherryObject.translateXProperty(), -(platform.getLayoutX() )));
                                     KeyFrame perfectLandKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(perfectLand.translateXProperty(), -(platform.getLayoutX() )));
                                     KeyFrame platformBaseKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platformBase.translateXProperty(), -(platform.getLayoutX() )));
-                                    KeyFrame playerKeyFrameLeft = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), -(platform.getLayoutX() ) + lineLength));
+                                    KeyFrame playerKeyFrameLeft = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), -(platform.getLayoutX() ) - lineLength + player.getFitWidth()));
                                     stick.setVisible(false);
 
                                     // Add the keyframe to the timeline
@@ -156,7 +185,7 @@ public class playControl {
                                     platformMove.getKeyFrames().add(playerKeyFrameLeft);
                             
                                     // Set the cycle count to 1
-                                    platformMove.setCycleCount(1);
+                                    platformMove.setCycleCount(1); //changed here to see
                                     platformMove.play();
                             
                                     playControl.setCount(playControl.getCount() + 1);
@@ -166,24 +195,36 @@ public class playControl {
                                     platformMove.setOnFinished(finishEvent3 ->{
                                         if(playControl.getCount()==4){
                                             platformMove.stop();
+                                            int index = 0;
+                                            index = root.getChildren().indexOf(platformBase);
+//                                            root.getChildren().remove((Node)platformBase);
 
-                                            root.getChildren().remove((Node)platformBase);
-
-                                            platformBase = new Rectangle(0, platform.getLayoutY(), platform.getWidth(), platform.getHeight());
+//                                            platformBase = new Rectangle(0, platform.getLayoutY(), platform.getWidth(), platform.getHeight());
+                                            platformBase.setX(0);
+                                            platformBase.setId("platformBase"); // Set the ID
                                             platformBase.setFill(Color.web("#666666"));
 
-                                            root.getChildren().add((Node)platformBase);
+//                                            root.getChildren().add(index,(Node)platformBase);
 
-                                            root.getChildren().remove((Node)platform);
-                                            platform = new Rectangle(400, platformBase.getY(), 100, platformBase.getHeight());
-                                            platform.setFill(Color.web("#666666"));
-                                            root.getChildren().add((Node)platform);
+                                            index = root.getChildren().indexOf(platform);
+
+//                                            root.getChildren().remove((Node)platform);
+
+//                                            platform = new Rectangle(200, platformBase.getY(), 100, platformBase.getHeight());
+                                            Random random = new Random();
+                                            platform.setWidth(random.nextInt(10,100));
+                                            platform.setLayoutX(random.nextInt(200,500));
+
+
+
+//                                            root.getChildren().add(index,(Node)platform);
 
                                             perfectLand2 = new Rectangle(platform.getX() + platform.getWidth()/2 - 4, platform.getY(), 8, 8);
                                             perfectLand2.setFill(Color.web("#ff0000"));
                                             
 
-                                            stick = new Line(player.getTranslateX() + player.getFitWidth() + player.getLayoutX(), 564, player.getTranslateX() + player.getFitWidth() + player.getLayoutX(), 564);
+                                            stick = new Line(-9 + player.getFitWidth() + player.getLayoutX(), 564, -9 + player.getFitWidth() + player.getLayoutX(), 564);
+                                            stick.setId("stick"); // Set the ID
                                             stick.setStrokeWidth(7);
                                             stick.setStroke(Color.web("#e10000"));
                                             stick.setStrokeLineCap(StrokeLineCap.ROUND);
@@ -212,8 +253,9 @@ public class playControl {
                                             // root.getChildren().add((Node)platform);
                                             // root.getChildren().add((Node)platformBase);
                                             root.getChildren().add((Node)stick);
-                                            root.getChildren().add((Node)perfectLand2);
                                             root.getChildren().remove((Node)perfectLand);
+                                            root.getChildren().add((Node)perfectLand2);
+
 
 
 
@@ -224,6 +266,12 @@ public class playControl {
                                             perfectLand2.setTranslateX(0);
                                             player.setLayoutX(player.getLayoutX() + player.getTranslateX());
                                             player.setTranslateX(0);
+
+                                            rotateTimeline.getKeyFrames().clear();
+                                            System.out.println(platformMove.getKeyFrames());
+                                            playerWalk.getKeyFrames().clear();
+
+                                            System.out.println("the count animation is " + platformMove.getCycleCount());
 
 
                                             
@@ -254,6 +302,19 @@ public class playControl {
         scene = new Scene((Parent)root);
         stage.setScene(scene);
         stage.show();
+
+    }
+    @FXML
+    private void switchToFailScreen(Parent root) throws IOException {
+        Stage stage = (Stage) ((Node) root).getScene().getWindow(); // Get the existing stage
+        root = FXMLLoader.load(getClass().getResource("failed.fxml"));
+        Scene scene = new Scene(root);
+        Text scoreText = (Text) root.lookup("#finalScore");
+        scoreText.setText(String.valueOf(correct));
+
+        stage.setScene(scene);
+        stage.show();
+
 
     }
 
