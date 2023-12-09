@@ -106,6 +106,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -126,7 +127,7 @@
                 <configuration>
                     <archive>
                         <manifestFile>
-                            
+                            src/main/resources/META-INF/MANIFEST.MF
                         </manifestFile>
                     </archive>
                 </configuration>
@@ -140,9 +141,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass><com class="example stickhero_cse201"/>
-                            <com class="example stickhero_cse201 StickHeroMain"></com>
-                            </mainClass>
+                            <mainClass>com.example.stickhero_cse201.StickHeroMain</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

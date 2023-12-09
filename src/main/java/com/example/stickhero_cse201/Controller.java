@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 
 public class Controller {
-    static int serializationCount = 0;
+    private static int serializationCount = 0;
     @FXML
     private Stage stage;
     @FXML

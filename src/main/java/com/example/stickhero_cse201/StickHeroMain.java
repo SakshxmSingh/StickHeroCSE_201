@@ -55,6 +55,7 @@ public class StickHeroMain extends Application implements Serializable{
         stage.show();
     }
 
+    
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         launch();
     }
