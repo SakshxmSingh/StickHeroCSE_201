@@ -46,6 +46,7 @@
             <Image url="@images/cherry.png" />
          </image>
       </ImageView>
+      <Rectangle fx:id="areaToPress" arcHeight="5.0" arcWidth="5.0" fill="#ff000000" height="710.0" layoutY="94.0" onMousePressed="#onClick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
       <Text layoutX="100.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STICK" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="383.1800003051758">
          <font>
             <Font name="AXIS Extra Bold" size="36.0" />
@@ -56,7 +57,6 @@
             <Font name="AXIS Extra Bold" size="42.0" />
          </font>
       </Text>
-      <Rectangle fx:id="platformBase" fill="#666666" height="346.0" layoutX="-60.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="148.0" AnchorPane.bottomAnchor="-110.0" AnchorPane.leftAnchor="-60.0" AnchorPane.rightAnchor="512.0" AnchorPane.topAnchor="564.0" />
       <ImageView fx:id="player" fitHeight="57.0" fitWidth="50.0" layoutX="46.333333333333336" layoutY="511.3333333333333" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="231.66666666666674" AnchorPane.leftAnchor="46.333333333333336" AnchorPane.rightAnchor="504.00757471720374" AnchorPane.topAnchor="511.3333333333333">
          <image>
             <Image url="@images/ninja_initial.png" />
@@ -66,9 +66,9 @@
             <Image url="@images/cherry.png" />
          </image>
       </ImageView>
-      <Text fx:id="score" layoutX="470.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX" textAlignment="RIGHT">
+      <Text fx:id="score" layoutX="268.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
          <font>
-            <Font name="AXIS Extra Bold" size="18.0" />
+            <Font name="AXIS Extra Bold" size="88.0" />
          </font>
       </Text>
       <Rectangle fx:id="platform" fill="#666666" height="346.0" layoutX="348.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="89.0" />
@@ -84,6 +84,11 @@
             <Font name="AXIS Extra Bold" size="19.0" />
          </font>
       </Button>
-      <Rectangle fx:id="areaToPress" arcHeight="5.0" arcWidth="5.0" fill="#ff000000" height="710.0" layoutY="94.0" onMousePressed="#onClick" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Text fx:id="cherryCount" layoutX="477.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX" textAlignment="RIGHT">
+         <font>
+            <Font name="AXIS Extra Bold" size="18.0" />
+         </font>
+      </Text>
+      <Rectangle fx:id="platformBase" fill="#666666" height="346.0" layoutX="-60.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="148.0" AnchorPane.bottomAnchor="-110.0" AnchorPane.leftAnchor="-60.0" AnchorPane.rightAnchor="512.0" AnchorPane.topAnchor="564.0" />
    </children>
 </AnchorPane>

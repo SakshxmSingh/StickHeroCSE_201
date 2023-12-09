@@ -79,6 +79,7 @@ public class playControl {
     private double x2;
     private double startX;
     private int correct;
+    private boolean fallBool = false;
 
     @FXML
     private void onClick(MouseEvent event) throws InterruptedException {
@@ -131,11 +132,12 @@ public class playControl {
                         x2 = platform.getLayoutX() +  (platform.getWidth()/2);
                         System.out.println("the start and final" + x1 +" " + x2);
                         if((-lineLength) + startX < x1 || (-lineLength) + startX > x2){
-                            try {
-                                switchToFailScreen(root);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
+                            // try {
+                            //     switchToFailScreen(root);
+                            // } catch (IOException e) {
+                            //     throw new RuntimeException(e);
+                            // }
+                            fallBool = true;
                         }
                         else{
                             correct++;
@@ -165,36 +167,60 @@ public class playControl {
                             playerWalk.setOnFinished(finishEvent2 -> {
                                 // player.setLayoutX(player.getLayoutX() - lineLength);
                                 if (playControl.getCount() == 3) {
-                                    playerWalk.stop();
                                     platformMove = new Timeline();
-                            
-                                    // Define the keyframe with the desired duration and translateX value
-                                    System.out.println(platform.getX() + "  " + platformBase.getX() + " " + platform.getLayoutX());
-                                    KeyFrame platformKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platform.translateXProperty(), -(platform.getLayoutX() )));
-                                    KeyFrame cherryKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(cherryObject.translateXProperty(), -(platform.getLayoutX() )));
-                                    KeyFrame perfectLandKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(perfectLand.translateXProperty(), -(platform.getLayoutX() )));
-                                    KeyFrame platformBaseKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platformBase.translateXProperty(), -(platform.getLayoutX() )));
-                                    KeyFrame playerKeyFrameLeft = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), -(platform.getLayoutX() ) - lineLength + player.getFitWidth()));
-                                    stick.setVisible(false);
+                                    playerWalk.stop();
 
-                                    // Add the keyframe to the timeline
-                                    platformMove.getKeyFrames().add(platformBaseKeyFrame);
-                                    platformMove.getKeyFrames().add(platformKeyFrame);
-                                    platformMove.getKeyFrames().add(cherryKeyFrame);
-                                    platformMove.getKeyFrames().add(perfectLandKeyFrame);
-                                    platformMove.getKeyFrames().add(playerKeyFrameLeft);
-                            
-                                    // Set the cycle count to 1
-                                    platformMove.setCycleCount(1); //changed here to see
-                                    platformMove.play();
-                            
-                                    playControl.setCount(playControl.getCount() + 1);
-                                    System.out.println("final count" + playControl.getCount());
-                                    System.out.println("final length" + lineLength);
+                                    if(fallBool){
+                                        KeyFrame playerFallFrame = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateYProperty(), 1000));
+                                        KeyFrame playerRoFrame = new KeyFrame(Duration.seconds(1), new KeyValue(player.rotateProperty(), 360));
+                                        platformMove.getKeyFrames().add(playerFallFrame);
+                                        platformMove.getKeyFrames().add(playerRoFrame);
+                                        platformMove.setCycleCount(1);
+                                        platformMove.play();
+                                        playControl.setCount(playControl.getCount() + 1);
 
+
+                                    }
+                                    else{  
+                                        System.out.println(platform.getX() + "  " + platformBase.getX() + " " + platform.getLayoutX());
+                                        KeyFrame platformKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platform.translateXProperty(), -(platform.getLayoutX() )));
+                                        KeyFrame cherryKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(cherryObject.translateXProperty(), -(platform.getLayoutX() )));
+                                        KeyFrame perfectLandKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(perfectLand.translateXProperty(), -(platform.getLayoutX() )));
+                                        KeyFrame platformBaseKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platformBase.translateXProperty(), -(platform.getLayoutX() )));
+                                        KeyFrame playerKeyFrameLeft = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), -(platform.getLayoutX() ) - lineLength + player.getFitWidth()));
+                                        stick.setVisible(false);
+
+                                        // Add the keyframe to the timeline
+                                        platformMove.getKeyFrames().add(platformBaseKeyFrame);
+                                        platformMove.getKeyFrames().add(platformKeyFrame);
+                                        platformMove.getKeyFrames().add(cherryKeyFrame);
+                                        platformMove.getKeyFrames().add(perfectLandKeyFrame);
+                                        platformMove.getKeyFrames().add(playerKeyFrameLeft);
+                                
+                                        // Set the cycle count to 1
+                                        platformMove.setCycleCount(1); //changed here to see
+                                        platformMove.play();
+                                
+                                        playControl.setCount(playControl.getCount() + 1);
+                                        System.out.println("final count" + playControl.getCount());
+                                        System.out.println("final length" + lineLength);
+                                        
+                                    }
+                       
                                     platformMove.setOnFinished(finishEvent3 ->{
                                         if(playControl.getCount()==4){
                                             platformMove.stop();
+                                            if(fallBool){
+                                                try {
+                                                    switchToFailScreen(root);
+                                                } catch (IOException e) {
+                                                    throw new RuntimeException(e);
+                                                }
+                                                finally{
+                                                    fallBool = false;
+                                                }
+                                            }
+
                                             int index = 0;
                                             index = root.getChildren().indexOf(platformBase);
 //                                            root.getChildren().remove((Node)platformBase);
