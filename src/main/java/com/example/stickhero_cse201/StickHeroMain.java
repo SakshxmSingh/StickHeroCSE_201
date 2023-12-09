@@ -19,10 +19,7 @@ public class StickHeroMain extends Application implements Serializable{
         StickHeroMain.playerList = playerList;
     }
 
-    // private Player currentPlayer;
-    // private Stick gameStick;
-    // private Platform gamePlatform;
-    // private int platformSpacing;
+
     private Stage stage;
 
     public static void addNewPlayer(Player player){

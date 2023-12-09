@@ -133,12 +133,12 @@
                      </effect>
                   </Text>
                   <Rectangle arcHeight="8.0" arcWidth="8.0" fill="#e4e4e4" height="74.0" layoutX="49.0" layoutY="72.0" stroke="#616161" strokeType="INSIDE" strokeWidth="4.0" width="237.0" />
-                  <ImageView fitHeight="59.0" fitWidth="52.0" layoutX="74.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="59.0" fitWidth="52.0" layoutX="112.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/cherry.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="reviveCherry" layoutX="144.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxx">
+                  <Text fx:id="reviveCherry" layoutX="171.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                      <font>
                         <Font name="AXIS Extra Bold" size="44.0" />
                      </font>
@@ -153,6 +153,7 @@
                         <Font name="AXIS Extra Bold" size="52.0" />
                      </font>
                   </Text>
+                  <Button layoutX="54.0" layoutY="77.0" mnemonicParsing="false" onAction="#switchToPlayScreenCont" opacity="0.0" prefHeight="62.0" prefWidth="227.0" text="Button" />
                </children>
             </AnchorPane>
             <Text layoutX="119.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GIT GUD" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="120.05198669433594">

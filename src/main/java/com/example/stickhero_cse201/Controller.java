@@ -163,31 +163,19 @@ public class Controller {
         Parent root = FXMLLoader.load(getClass().getResource("load_home.fxml"));
 
 
-        // ScrollPane scrollPane;
-        // for(Node node: root.getChildrenUnmodifiable()){
-        //     if(node.getClass().getSimpleName().equals("ScrollPane")){
-        //         for(Node node2: ((ScrollPane)node).getChildrenUnmodifiable()){
-        //             if(node2.getId().equals("vbox")){
-        //                 for(Player player: StickHeroMain.getPlayerList()){
-        //                     AnchorPane anchorPane = createSaveGameFile(player);
-        //                     ((VBox)node2).getChildren().add(anchorPane);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
+
 
         for(Node node: root.getChildrenUnmodifiable()){
             if(node.getClass().getSimpleName().equals("AnchorPane")){
                 if(node.getId()!= null && node.getId().equals("mainAnchor")){
-                    System.out.println("bruh");
+
                     for(Node node2: ((AnchorPane)node).getChildrenUnmodifiable()){
-                                            System.out.println("bruh2");
+
 
                         if(node2 instanceof ScrollPane && node2.getId().equals("scrollPane")){
-                            System.out.println("bruh3");
+
                                 if(((ScrollPane)node2).getContent() instanceof VBox && ((ScrollPane)node2).getContent().getId().equals("vbox")){
-                                    System.out.println("bruh5");
+
                                     for(Player player: StickHeroMain.getPlayerList()){
                                         AnchorPane anchorPane = createSaveGameFile(player);
                                         ((VBox)((ScrollPane)node2).getContent()).getChildren().add(anchorPane);
@@ -197,33 +185,10 @@ public class Controller {
                         }
                     }
                 }
-                // for(Node content: ((AnchorPane)node).getChildrenUnmodifiable()){
-                //     if(content instanceof ScrollPane && content.getId().equals("scrollPane")){
-                //         for(Node content2: ((ScrollPane)content).getChildrenUnmodifiable()){
-                //             if(content2 instanceof VBox && content2.getId().equals("vbox")){
-                //                 for(Player player: StickHeroMain.getPlayerList()){
-                //                     AnchorPane anchorPane = createSaveGameFile(player);
-                //                     ((VBox)content2).getChildren().add(anchorPane);
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
-                // System.out.println("bruh");
-                // if(content instanceof VBox && content.getId().equals("vbox")){
-                //     System.out.println("bruh2");
-                //     for(Player player: StickHeroMain.getPlayerList()){
-                //         System.out.println("bruh3");
-                //         AnchorPane anchorPane = createSaveGameFile(player);
-                //         System.out.println(anchorPane);
-                //         ((VBox)content).getChildren().add(anchorPane);
-                //     }
-                // }
+
             }
         }
 
-
-        
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -233,8 +198,6 @@ public class Controller {
     @FXML
     private void saveGame(ActionEvent event) throws IOException {
         playControl.setCount(0);
-        System.out.println("Game Saved");
-        System.out.println("Score: " + playControl.getCorrect());
 
         StickHeroMain.addNewPlayer(new Player(playControl.getCorrect()));
         StickHeroMain.Serialize(StickHeroMain.getPlayerList());

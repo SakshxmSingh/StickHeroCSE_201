@@ -57,6 +57,7 @@ public class playControl {
 
     @FXML
     private Line stick;
+
     @FXML
     private Text perfect;
 
@@ -106,42 +107,44 @@ public class playControl {
 
             Timeline timeline = new Timeline();
 
-            // Define the keyframe with the desired duration and endY value
+
             KeyFrame keyFrame = new KeyFrame(Duration.seconds(5), new KeyValue(stick.endYProperty(), stick.getEndY() - 1000));
 
-            // Add the keyframe to the timeline
+
             timeline.getKeyFrames().add(keyFrame);
 
-            // Set the cycle count to indefinite to keep the animation running
+
             timeline.setCycleCount(1);
 
-            // Play the timeline when the mouse is pressed
+
             timeline.play();
             playControl.setCount(playControl.getCount() + 1);
 
-            // Stop the timeline and rotate the stick when the mouse is released
+
 
             areaToPress.setOnMouseReleased(mouseReleasedEvent -> {
                 timeline.stop();
 
-                // Rotate the stick 90 degrees
-                // Get the top of the stick (end point, Y-coordinate)
+
                 
                 if(playControl.getCount() == 1){
                     
                     lineLength = stick.getEndY() - stick.getStartY();
 
+
                     double topY = stick.getStartY();
-                        // Rotate the stick 90 degrees around its top
+
                     Rotate rotate = new Rotate(90, stick.getStartX(), topY);
                     stick.getTransforms().add(rotate);
                     lineLength = stick.getEndY() - stick.getStartY();
+                    Stick.setLen(lineLength);
+
                     Timeline rotateTimeline = new Timeline(
                             new KeyFrame(Duration.ZERO, new KeyValue(rotate.angleProperty(), 0)),
                             new KeyFrame(Duration.seconds(0.5), new KeyValue(rotate.angleProperty(), 90))
                     );
 
-                    // Play the rotation animation
+
                     rotateTimeline.play();
                     playControl.setCount(playControl.getCount() + 1);
 
@@ -149,16 +152,12 @@ public class playControl {
                         startX = platformBase.getX() + (platformBase.getWidth()/2);
                         x1 = platform.getLayoutX() -  (platform.getWidth()/2);
                         x2 = platform.getLayoutX() +  (platform.getWidth()/2);
-                        System.out.println("the start and final" + x1 +" " + x2);
-                        if((-lineLength) + startX - 17  < x1 || (-lineLength) + startX - 10 > x2){
-                            // try {
-                            //     switchToFailScreen(root);
-                            // } catch (IOException e) {
-                            //     throw new RuntimeException(e);
-                            // }
+
+                        if((-Stick.getLen()) + startX - 17  < x1 || (-Stick.getLen()) + startX - 10 > x2){
+
                             fallBool = true;
                         }
-                        else if((-lineLength) + startX -17 < x1 + 50 || (-lineLength) + startX -17 > x2 - 50){
+                        else if((-Stick.getLen()) + startX -17 < x1 + 50 || (-Stick.getLen()) + startX -17 > x2 - 50){
                             correct= correct + 2;
                             score.setText(String.valueOf(correct));
                             perfect.setVisible(true);
@@ -170,29 +169,25 @@ public class playControl {
 
                         }
                         if (playControl.getCount() == 2) {
-                            // Move the player to the end of the stick
-                            // playerWalk = new TranslateTransition(Duration.seconds(1), player);
-                            // playerWalk.setByX(-lineLength);
-                            // playerWalk.play();
-                            // playControl.setCount(playControl.getCount() + 1);
-                            // System.out.println("final count" + playControl.getCount());
-                            // System.out.println("final length" + lineLength);
+
 
                             playerWalk = new Timeline();
 
-                            KeyFrame playerKeyFrameRight = new KeyFrame(Duration.seconds(0.75), new KeyValue(player.translateXProperty(), -lineLength + player.getFitWidth()));
-                            System.out.println("the line length is " + lineLength);
+                            KeyFrame playerKeyFrameRight = new KeyFrame(Duration.seconds(0.75), new KeyValue(player.translateXProperty(), -Stick.getLen() + player.getFitWidth()));
+
                             playerWalk.getKeyFrames().add(playerKeyFrameRight);
                             playerWalk.setCycleCount(1);
                             playerWalk.play();
                             playControl.setCount(playControl.getCount() + 1);
-                            if(check == false){
-                                fallBool = true;
-                            }
+
 
                             // Set the onFinished event for the platformMove
                             playerWalk.setOnFinished(finishEvent2 -> {
-                                // player.setLayoutX(player.getLayoutX() - lineLength);
+
+                                if(!check){
+                                    fallBool = true;
+                                    correct--;
+                                }
                                 if (playControl.getCount() == 3) {
                                     platformMove = new Timeline();
                                     playerWalk.stop();
@@ -209,7 +204,7 @@ public class playControl {
 
                                     }
                                     else{  
-                                        System.out.println(platform.getX() + "  " + platformBase.getX() + " " + platform.getLayoutX());
+
                                         KeyFrame platformKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platform.translateXProperty(), -(platform.getLayoutX() )));
                                         KeyFrame cherryKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(cherryObject.translateXProperty(), -(platform.getLayoutX() )));
                                         KeyFrame platformBaseKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platformBase.translateXProperty(), -(platform.getLayoutX() )));
@@ -223,12 +218,11 @@ public class playControl {
                                         platformMove.getKeyFrames().add(playerKeyFrameLeft);
                                 
                                         // Set the cycle count to 1
-                                        platformMove.setCycleCount(1); //changed here to see
+                                        platformMove.setCycleCount(1);
                                         platformMove.play();
                                 
                                         playControl.setCount(playControl.getCount() + 1);
-                                        System.out.println("final count" + playControl.getCount());
-                                        System.out.println("final length" + lineLength);
+
                                         
                                     }
                        
@@ -238,7 +232,7 @@ public class playControl {
                                             platformMove.stop();
                                             if(fallBool){
                                                 try {
-                                                    System.out.println("failing1");
+
                                                     switchToFailScreen(root);
                                                 } catch (IOException e) {
                                                     throw new RuntimeException(e);
@@ -250,35 +244,25 @@ public class playControl {
 
                                             int index = 0;
                                             index = root.getChildren().indexOf(platformBase);
-//                                            root.getChildren().remove((Node)platformBase);
 
-//                                            platformBase = new Rectangle(0, platform.getLayoutY(), platform.getWidth(), platform.getHeight());
+
+
                                             platformBase.setX(0);
                                             platformBase.setId("platformBase"); // Set the ID
                                             platformBase.setFill(Color.web("#666666"));
 
-//                                            root.getChildren().add(index,(Node)platformBase);
+
 
                                             index = root.getChildren().indexOf(platform);
 
-//                                            root.getChildren().remove((Node)platform);
-
-//                                            platform = new Rectangle(200, platformBase.getY(), 100, platformBase.getHeight());
                                             Random random = new Random();
-                                            platform.setWidth(random.nextInt(75,150));
-                                            platform.setLayoutX(random.nextInt(200,500));
-
+                                            Platform.randomWidth(platform);
                                             player.setLayoutX(46.333333333333336);
 
 
                                             cherryObject.setLayoutX(random.nextInt(100,457));
                                             cherryObject.setLayoutY(570);
                                             cherryObject.setVisible(true);
-
-
-//                                            root.getChildren().add(index,(Node)platform);
-
-
 
 
                                             stick = new Line( startX + 15, 564,  startX + 15, 564);
@@ -288,33 +272,9 @@ public class playControl {
                                             stick.setStrokeLineCap(StrokeLineCap.ROUND);
                                             stick.setStrokeType(StrokeType.CENTERED);
 
-                                            
 
 
-                                            // ImageView playerTemp = new ImageView(String.valueOf(getClass().getResource("images/ninja_initial.png")));
-                                            // playerTemp.setFitHeight(57);
-                                            // playerTemp.setFitWidth(50);
-                                            // playerTemp.setLayoutX(player.getLayoutX() + player.getTranslateX());
-                                            // playerTemp.setLayoutY(player.getLayoutY() + player.getTranslateY());
-
-
-                                            // player
-
-                                            // root.getChildren().remove((Node)player);
-
-                                            // player = playerTemp;
-
-
-                                        
-
-                                            //addd the platform to the scene
-                                            // root.getChildren().add((Node)platform);
-                                            // root.getChildren().add((Node)platformBase);
                                             root.getChildren().add((Node)stick);
-//                                            root.getChildren().remove((Node)perfectLand);
-//                                            root.getChildren().add((Node)perfectLand2);
-
-
 
 
                                             playControl.setCount(0);
@@ -325,13 +285,11 @@ public class playControl {
                                             player.setTranslateX(0);
 
                                             rotateTimeline.getKeyFrames().clear();
-                                            System.out.println(platformMove.getKeyFrames());
+
                                             playerWalk.getKeyFrames().clear();
 
-                                            System.out.println("the count animation is " + platformMove.getCycleCount());
 
 
-                                            
 
                                         }
                                     });
@@ -345,24 +303,11 @@ public class playControl {
 
             });
             areaToPress.setOnKeyPressed(keyReleasedEvent -> {
-                double h;
-                if(check){
-                    h = - player.getFitHeight();
-                    check = !check;
-                }
-                else{
-                    h = player.getFitHeight();
-                    check = !check;
-                }
-                player.setScaleY(player.getScaleY() * -1);
-                player.setLayoutY(player.getLayoutY() - h);
-//
+                check = Player.turnUpsideDown(player,check);
             });
             areaToPress.requestFocus();
 
         }
-        System.out.println("initial count " + playControl.getCount());
-        System.out.println("initial length " + lineLength);
 
     }
 
@@ -378,7 +323,7 @@ public class playControl {
     }
     @FXML
     private void switchToFailScreen(Parent root) throws IOException {
-        System.out.println("failing2");
+
         Stage stage = (Stage) ((Node) root).getScene().getWindow(); // Get the existing stage
         root = FXMLLoader.load(getClass().getResource("failed.fxml"));
         Scene scene = new Scene(root);
