@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Controller {
     @FXML
     private Stage stage;
@@ -54,6 +55,12 @@ public class Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void saveGame(ActionEvent event) throws IOException {
+        System.out.println("Game Saved");
+        System.out.println("Score: " + playControl.getCorrect());
     }
 
 
