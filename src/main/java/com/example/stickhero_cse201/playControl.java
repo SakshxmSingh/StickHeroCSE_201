@@ -80,7 +80,16 @@ public class playControl {
     private double x2;
     private boolean check = true;
     private double startX;
-    private int correct;
+    private static int correct = 0;
+
+    public static int getCorrect() {
+        return correct;
+    }
+    public static void setCorrect(int correct) {
+        playControl.correct = correct;
+    }
+
+
     private boolean fallBool = false;
 
     @FXML
@@ -351,7 +360,6 @@ public class playControl {
 
     @FXML
     void switchToPauseScreen(ActionEvent event) throws IOException {
-        playControl.setCount(0);
         root = FXMLLoader.load(getClass().getResource("pause.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene((Parent)root);
