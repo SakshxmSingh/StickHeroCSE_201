@@ -57,7 +57,7 @@
             <Font name="AXIS Extra Bold" size="42.0" />
          </font>
       </Text>
-      <ImageView fx:id="player" fitHeight="57.0" fitWidth="50.0" layoutX="46.333333333333336" layoutY="511.3333333333333" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="231.66666666666674" AnchorPane.leftAnchor="46.333333333333336" AnchorPane.rightAnchor="504.00757471720374" AnchorPane.topAnchor="511.3333333333333">
+      <ImageView fx:id="player" fitHeight="57.0" fitWidth="50.0" layoutX="46.333333333333336" layoutY="508.3333333333333" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/ninja_initial.png" />
          </image></ImageView>
@@ -71,19 +71,23 @@
             <Font name="AXIS Extra Bold" size="88.0" />
          </font>
       </Text>
-      <Rectangle fx:id="platform" fill="#666666" height="346.0" layoutX="348.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="89.0" />
-      <ImageView fx:id="cherryObject" fitHeight="41.0" fitWidth="35.0" layoutX="222.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle fx:id="platform" fill="#666666" height="346.0" layoutX="333.0" layoutY="564.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="89.0" />
+      <ImageView fx:id="cherryObject" fitHeight="41.0" fitWidth="35.0" layoutX="108.0" layoutY="570.3333333333334" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="192.7631594340006" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="457.0" AnchorPane.topAnchor="570.3333333333334">
          <image>
             <Image url="@images/cherry.png" />
          </image>
       </ImageView>
       <Line fx:id="stick" endX="88.00830078125" endY="564.0" onKeyPressed="#onClick" startX="88.00830078125" startY="564.0" stroke="#e10000" strokeLineCap="ROUND" strokeWidth="7.0" />
-      <Rectangle fx:id="perfectLand" fill="RED" height="8.0" layoutX="390.0" layoutY="564.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="8.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="202.0" AnchorPane.topAnchor="564.0" />
       <Button fx:id="pauseButton" layoutX="26.0" layoutY="26.0" maxHeight="50.0" maxWidth="50.0" mnemonicParsing="false" onAction="#switchToPauseScreen" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-background-color: d9d9d9; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 7, 0.5, 0.0, 0.0);" text="| |">
          <font>
             <Font name="AXIS Extra Bold" size="19.0" />
          </font>
       </Button>
+      <Text fx:id="perfect" layoutX="246.33333333333334" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfect++" textAlignment="RIGHT" AnchorPane.leftAnchor="246.33333333333334" AnchorPane.rightAnchor="246.31467692057288">
+         <font>
+            <Font name="AXIS Extra Bold" size="18.0" />
+         </font>
+      </Text>
       <Text fx:id="cherryCount" layoutX="477.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX" textAlignment="RIGHT">
          <font>
             <Font name="AXIS Extra Bold" size="18.0" />

@@ -45,8 +45,6 @@ public class playControl {
     @FXML
     private Button pauseButton;
 
-    @FXML
-    private Rectangle perfectLand, perfectLand2;
 
     @FXML
     private Rectangle platform, platformBase;
@@ -59,8 +57,11 @@ public class playControl {
 
     @FXML
     private Line stick;
+    @FXML
+    private Text perfect;
 
     private static int count = 0;
+
 
     public static int getCount() {
         return count;
@@ -77,13 +78,14 @@ public class playControl {
 
     private double x1;
     private double x2;
+    private boolean check = true;
     private double startX;
     private int correct;
     private boolean fallBool = false;
 
     @FXML
     private void onClick(MouseEvent event) throws InterruptedException {
-
+        perfect.setVisible(false);
         if (count == 0) {
             Timeline timeline = new Timeline();
 
@@ -131,13 +133,18 @@ public class playControl {
                         x1 = platform.getLayoutX() -  (platform.getWidth()/2);
                         x2 = platform.getLayoutX() +  (platform.getWidth()/2);
                         System.out.println("the start and final" + x1 +" " + x2);
-                        if((-lineLength) + startX < x1 || (-lineLength) + startX > x2){
+                        if((-lineLength) + startX - 17  < x1 || (-lineLength) + startX - 10 > x2){
                             // try {
                             //     switchToFailScreen(root);
                             // } catch (IOException e) {
                             //     throw new RuntimeException(e);
                             // }
                             fallBool = true;
+                        }
+                        else if((-lineLength) + startX -17 < x1 + 50 || (-lineLength) + startX -17 > x2 - 50){
+                            correct= correct + 2;
+                            score.setText(String.valueOf(correct));
+                            perfect.setVisible(true);
                         }
                         else{
                             correct++;
@@ -162,6 +169,9 @@ public class playControl {
                             playerWalk.setCycleCount(1);
                             playerWalk.play();
                             playControl.setCount(playControl.getCount() + 1);
+                            if(check == false){
+                                fallBool = true;
+                            }
 
                             // Set the onFinished event for the platformMove
                             playerWalk.setOnFinished(finishEvent2 -> {
@@ -185,7 +195,6 @@ public class playControl {
                                         System.out.println(platform.getX() + "  " + platformBase.getX() + " " + platform.getLayoutX());
                                         KeyFrame platformKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platform.translateXProperty(), -(platform.getLayoutX() )));
                                         KeyFrame cherryKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(cherryObject.translateXProperty(), -(platform.getLayoutX() )));
-                                        KeyFrame perfectLandKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(perfectLand.translateXProperty(), -(platform.getLayoutX() )));
                                         KeyFrame platformBaseKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platformBase.translateXProperty(), -(platform.getLayoutX() )));
                                         KeyFrame playerKeyFrameLeft = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), -(platform.getLayoutX() ) - lineLength + player.getFitWidth()));
                                         stick.setVisible(false);
@@ -194,7 +203,6 @@ public class playControl {
                                         platformMove.getKeyFrames().add(platformBaseKeyFrame);
                                         platformMove.getKeyFrames().add(platformKeyFrame);
                                         platformMove.getKeyFrames().add(cherryKeyFrame);
-                                        platformMove.getKeyFrames().add(perfectLandKeyFrame);
                                         platformMove.getKeyFrames().add(playerKeyFrameLeft);
                                 
                                         // Set the cycle count to 1
@@ -208,6 +216,7 @@ public class playControl {
                                     }
                        
                                     platformMove.setOnFinished(finishEvent3 ->{
+                                        perfect.setVisible(false);
                                         if(playControl.getCount()==4){
                                             platformMove.stop();
                                             if(fallBool){
@@ -238,18 +247,23 @@ public class playControl {
 
 //                                            platform = new Rectangle(200, platformBase.getY(), 100, platformBase.getHeight());
                                             Random random = new Random();
-                                            platform.setWidth(random.nextInt(10,100));
+                                            platform.setWidth(random.nextInt(75,150));
                                             platform.setLayoutX(random.nextInt(200,500));
 
+                                            player.setLayoutX(46.333333333333336);
+
+
+                                            cherryObject.setLayoutX(random.nextInt(100,457));
+                                            cherryObject.setLayoutY(570);
+                                            cherryObject.setVisible(true);
 
 
 //                                            root.getChildren().add(index,(Node)platform);
 
-                                            perfectLand2 = new Rectangle(platform.getX() + platform.getWidth()/2 - 4, platform.getY(), 8, 8);
-                                            perfectLand2.setFill(Color.web("#ff0000"));
-                                            
 
-                                            stick = new Line(-9 + player.getFitWidth() + player.getLayoutX(), 564, -9 + player.getFitWidth() + player.getLayoutX(), 564);
+
+
+                                            stick = new Line( startX + 15, 564,  startX + 15, 564);
                                             stick.setId("stick"); // Set the ID
                                             stick.setStrokeWidth(7);
                                             stick.setStroke(Color.web("#e10000"));
@@ -279,8 +293,8 @@ public class playControl {
                                             // root.getChildren().add((Node)platform);
                                             // root.getChildren().add((Node)platformBase);
                                             root.getChildren().add((Node)stick);
-                                            root.getChildren().remove((Node)perfectLand);
-                                            root.getChildren().add((Node)perfectLand2);
+//                                            root.getChildren().remove((Node)perfectLand);
+//                                            root.getChildren().add((Node)perfectLand2);
 
 
 
@@ -289,7 +303,6 @@ public class playControl {
                                             lineLength = 0;
                                             platformBase.setTranslateX(0);
                                             platform.setTranslateX(0);
-                                            perfectLand2.setTranslateX(0);
                                             player.setLayoutX(player.getLayoutX() + player.getTranslateX());
                                             player.setTranslateX(0);
 
@@ -313,13 +326,28 @@ public class playControl {
                 
 
             });
+            areaToPress.setOnKeyPressed(keyReleasedEvent -> {
+                double h;
+                if(check){
+                    h = - player.getFitHeight();
+                    check = !check;
+                }
+                else{
+                    h = player.getFitHeight();
+                    check = !check;
+                }
+                player.setScaleY(player.getScaleY() * -1);
+                player.setLayoutY(player.getLayoutY() - h);
+//
+            });
+            areaToPress.requestFocus();
 
         }
         System.out.println("initial count " + playControl.getCount());
         System.out.println("initial length " + lineLength);
 
     }
-        
+
 
     @FXML
     void switchToPauseScreen(ActionEvent event) throws IOException {
