@@ -38,6 +38,7 @@ public class Controller {
     
     @FXML
     private void switchToHomePage(ActionEvent event) throws IOException {
+        playControl.setCount(0);
         Parent root = FXMLLoader.load(getClass().getResource("home_page.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -47,6 +48,7 @@ public class Controller {
 
     @FXML
     private void switchToLoadHomeScreen(ActionEvent event) throws IOException {
+        playControl.setCount(0);
         Parent root = FXMLLoader.load(getClass().getResource("load_home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

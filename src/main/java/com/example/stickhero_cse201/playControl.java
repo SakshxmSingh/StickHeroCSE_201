@@ -10,8 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
@@ -22,8 +26,10 @@ import javafx.util.Duration;
 public class playControl {
     @FXML
     private Stage stage;
+
     @FXML
     private Scene scene;
+
     @FXML
     private Rectangle areaToPress;
 
@@ -37,13 +43,16 @@ public class playControl {
     private Button pauseButton;
 
     @FXML
-    private Rectangle perfectLand;
+    private Rectangle perfectLand, perfectLand2;
 
     @FXML
-    private Rectangle platform;
+    private Rectangle platform, platformBase;
 
     @FXML
     private Text score;
+
+    @FXML
+    private AnchorPane root;
 
     @FXML
     private Line stick;
@@ -57,7 +66,12 @@ public class playControl {
         playControl.count = count;
     }
 
-    double lineLength;
+    private double lineLength = 0;
+
+    private Timeline playerWalk;
+
+    private Timeline platformMove;
+
     @FXML
     private void onClick(MouseEvent event) throws InterruptedException {
 
@@ -101,13 +115,124 @@ public class playControl {
                     // Play the rotation animation
                     rotateTimeline.play();
                     playControl.setCount(playControl.getCount() + 1);
-                    rotateTimeline.setOnFinished(finishEvent -> {
-                        if(playControl.getCount() == 2){
+                    rotateTimeline.setOnFinished(finishEvent1 -> {
+                        if (playControl.getCount() == 2) {
                             // Move the player to the end of the stick
-                            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), player);
-                            translateTransition.setByX(-lineLength);
-                            translateTransition.play();
-                            System.out.println("final " + lineLength);
+                            // playerWalk = new TranslateTransition(Duration.seconds(1), player);
+                            // playerWalk.setByX(-lineLength);
+                            // playerWalk.play();
+                            // playControl.setCount(playControl.getCount() + 1);
+                            // System.out.println("final count" + playControl.getCount());
+                            // System.out.println("final length" + lineLength);
+
+                            playerWalk = new Timeline();
+
+                            KeyFrame playerKeyFrameRight = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), lineLength));
+                            playerWalk.getKeyFrames().add(playerKeyFrameRight);
+                            playerWalk.setCycleCount(1);
+                            playerWalk.play();
+                            playControl.setCount(playControl.getCount() + 1);
+
+                            // Set the onFinished event for the platformMove
+                            playerWalk.setOnFinished(finishEvent2 -> {
+                                // player.setLayoutX(player.getLayoutX() - lineLength);
+                                if (playControl.getCount() == 3) {
+                                    playerWalk.stop();
+                                    platformMove = new Timeline();
+                            
+                                    // Define the keyframe with the desired duration and translateX value
+                                    KeyFrame platformKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platform.translateXProperty(), -(platform.getLayoutX() )));
+                                    KeyFrame cherryKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(cherryObject.translateXProperty(), -(platform.getLayoutX() )));
+                                    KeyFrame perfectLandKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(perfectLand.translateXProperty(), -(platform.getLayoutX() )));
+                                    KeyFrame platformBaseKeyFrame = new KeyFrame(Duration.seconds(1), new KeyValue(platformBase.translateXProperty(), -(platform.getLayoutX() )));
+                                    KeyFrame playerKeyFrameLeft = new KeyFrame(Duration.seconds(1), new KeyValue(player.translateXProperty(), -(platform.getLayoutX() ) + lineLength));
+                                    stick.setVisible(false);
+
+                                    // Add the keyframe to the timeline
+                                    platformMove.getKeyFrames().add(platformBaseKeyFrame);
+                                    platformMove.getKeyFrames().add(platformKeyFrame);
+                                    platformMove.getKeyFrames().add(cherryKeyFrame);
+                                    platformMove.getKeyFrames().add(perfectLandKeyFrame);
+                                    platformMove.getKeyFrames().add(playerKeyFrameLeft);
+                            
+                                    // Set the cycle count to 1
+                                    platformMove.setCycleCount(1);
+                                    platformMove.play();
+                            
+                                    playControl.setCount(playControl.getCount() + 1);
+                                    System.out.println("final count" + playControl.getCount());
+                                    System.out.println("final length" + lineLength);
+
+                                    platformMove.setOnFinished(finishEvent3 ->{
+                                        if(playControl.getCount()==4){
+                                            platformMove.stop();
+
+                                            root.getChildren().remove((Node)platformBase);
+
+                                            platformBase = new Rectangle(0, platform.getLayoutY(), platform.getWidth(), platform.getHeight());
+                                            platformBase.setFill(Color.web("#666666"));
+
+                                            root.getChildren().add((Node)platformBase);
+
+                                            root.getChildren().remove((Node)platform);
+                                            platform = new Rectangle(400, platformBase.getY(), 100, platformBase.getHeight());
+                                            platform.setFill(Color.web("#666666"));
+                                            root.getChildren().add((Node)platform);
+
+                                            perfectLand2 = new Rectangle(platform.getX() + platform.getWidth()/2 - 4, platform.getY(), 8, 8);
+                                            perfectLand2.setFill(Color.web("#ff0000"));
+                                            
+
+                                            stick = new Line(player.getTranslateX() + player.getFitWidth() + player.getLayoutX(), 564, player.getTranslateX() + player.getFitWidth() + player.getLayoutX(), 564);
+                                            stick.setStrokeWidth(7);
+                                            stick.setStroke(Color.web("#e10000"));
+                                            stick.setStrokeLineCap(StrokeLineCap.ROUND);
+                                            stick.setStrokeType(StrokeType.CENTERED);
+
+                                            
+
+
+                                            // ImageView playerTemp = new ImageView(String.valueOf(getClass().getResource("images/ninja_initial.png")));
+                                            // playerTemp.setFitHeight(57);
+                                            // playerTemp.setFitWidth(50);
+                                            // playerTemp.setLayoutX(player.getLayoutX() + player.getTranslateX());
+                                            // playerTemp.setLayoutY(player.getLayoutY() + player.getTranslateY());
+
+
+                                            // player
+
+                                            // root.getChildren().remove((Node)player);
+
+                                            // player = playerTemp;
+
+
+                                        
+
+                                            //addd the platform to the scene
+                                            // root.getChildren().add((Node)platform);
+                                            // root.getChildren().add((Node)platformBase);
+                                            root.getChildren().add((Node)stick);
+                                            root.getChildren().add((Node)perfectLand2);
+                                            root.getChildren().remove((Node)perfectLand);
+
+
+
+                                            playControl.setCount(0);
+                                            lineLength = 0;
+                                            platformBase.setTranslateX(0);
+                                            platform.setTranslateX(0);
+                                            perfectLand2.setTranslateX(0);
+                                            player.setLayoutX(player.getLayoutX() + player.getTranslateX());
+                                            player.setTranslateX(0);
+
+
+                                            
+
+                                        }
+                                    });
+                                }
+                            });
+
                         }
                     });
                 }
@@ -116,14 +241,17 @@ public class playControl {
             });
 
         }
+        System.out.println("initial count " + playControl.getCount());
+        System.out.println("initial length " + lineLength);
+
     }
         
 
     @FXML
     void switchToPauseScreen(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("pause.fxml"));
+        root = FXMLLoader.load(getClass().getResource("pause.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene((Parent)root);
         stage.setScene(scene);
         stage.show();
 
