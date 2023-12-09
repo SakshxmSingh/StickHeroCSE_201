@@ -29,15 +29,6 @@ public class StickHeroMain extends Application implements Serializable{
     public static void removePlayer(Player player){
         playerList.remove(player);
     }
-    public void newGame(){
-
-    }
-    public void loadGame(){
-
-    }
-    public void exitGame(){
-
-    }
 
 
 
