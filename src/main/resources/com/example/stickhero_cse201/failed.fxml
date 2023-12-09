@@ -90,7 +90,7 @@
       <Rectangle fill="#0000006d" height="800.0" smooth="false" stroke="BLACK" strokeType="INSIDE" width="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane layoutX="96.0" layoutY="145.0" maxHeight="465.0" maxWidth="368.0" minHeight="465.0" minWidth="368.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to bottom right, rgba(246, 246, 246, 0.35) -6.48%, #FFF 105.71%); -fx-background-radius: 17; -fx-border-color: grey; -fx-border-radius: 17; -fx-border-width: 3;" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="145.0">
          <children>
-            <HBox alignment="CENTER" layoutX="122.0" layoutY="429.0" prefHeight="66.0" prefWidth="158.0" spacing="20.0">
+            <HBox alignment="CENTER" layoutX="122.0" layoutY="418.0" prefHeight="66.0" prefWidth="158.0" spacing="20.0">
                <children>
                   <Button fx:id="reset" maxHeight="93.0" mnemonicParsing="false" onAction="#switchToPlayScreen" prefHeight="93.0" prefWidth="66.0" style="-fx-background-radius: 33; -fx-min-width: 66; -fx-min-height: 66; -fx-max-height: 66; -fx-max-height: 66; -fx-background-color: FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="reset">
                      <font>
@@ -115,7 +115,7 @@
                   <Font name="AXIS Extra Bold" size="51.0" />
                </font>
             </Text>
-            <AnchorPane layoutX="41.0" layoutY="150.0" maxHeight="270.0" maxWidth="330.0" minHeight="270.0" minWidth="330.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 13;">
+            <AnchorPane layoutX="41.0" layoutY="146.0" maxHeight="270.0" maxWidth="330.0" minHeight="222.0" minWidth="330.0" prefHeight="241.0" prefWidth="330.0" style="-fx-background-color: white; -fx-background-radius: 13;">
                <effect>
                   <DropShadow height="9.63" offsetY="3.0" radius="5.817500000000001" width="15.64">
                      <color>
@@ -124,23 +124,33 @@
                   </DropShadow>
                </effect>
                <children>
-                  <Text fill="RED" layoutX="26.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="continue?" textAlignment="CENTER" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.035003662109375">
+                  <Text fill="RED" layoutX="57.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="continue?" textAlignment="CENTER" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="56.80500793457031">
                      <font>
-                        <Font name="AXIS Extra Bold" size="45.0" />
+                        <Font name="AXIS Extra Bold" size="35.0" />
                      </font>
                      <effect>
                         <DropShadow height="5.9" offsetY="1.0" radius="0.9750000000000001" width="0.0" />
                      </effect>
                   </Text>
-                  <Rectangle arcHeight="8.0" arcWidth="8.0" fill="#e4e4e4" height="74.0" layoutX="49.0" layoutY="89.0" stroke="#616161" strokeType="INSIDE" strokeWidth="4.0" width="237.0" />
-                  <ImageView fitHeight="59.0" fitWidth="52.0" layoutX="74.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                  <Rectangle arcHeight="8.0" arcWidth="8.0" fill="#e4e4e4" height="74.0" layoutX="49.0" layoutY="72.0" stroke="#616161" strokeType="INSIDE" strokeWidth="4.0" width="237.0" />
+                  <ImageView fitHeight="59.0" fitWidth="52.0" layoutX="74.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/cherry.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="finalScore" layoutX="144.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxx">
+                  <Text fx:id="reviveCherry" layoutX="144.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="xxx">
                      <font>
                         <Font name="AXIS Extra Bold" size="44.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="68.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="score :">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="32.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="finalScore" fill="#a43838" layoutX="210.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                     <font>
+                        <Font name="AXIS Extra Bold" size="52.0" />
                      </font>
                   </Text>
                </children>

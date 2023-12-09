@@ -351,6 +351,7 @@ public class playControl {
 
     @FXML
     void switchToPauseScreen(ActionEvent event) throws IOException {
+        playControl.setCount(0);
         root = FXMLLoader.load(getClass().getResource("pause.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene((Parent)root);
