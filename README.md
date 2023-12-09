@@ -38,7 +38,7 @@ The game uses the Axis Bold font. Make sure it's installed on your system.
 To run the game, execute the `Main` class in your IDE. If you're using a terminal, you can use the following command:
 
 ```
-./mvnw exec:java -Dexec.mainClass="com.example.stickhero_cse201.Main"
+./mvnw exec:java -Dexec.mainClass="com.example.stickhero_cse201.StickHeroMain"
 ```
 
 ## Game Functionality
