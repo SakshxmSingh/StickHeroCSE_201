@@ -91,7 +91,7 @@
          <children>
             <HBox alignment="CENTER" layoutX="74.0" layoutY="355.0" prefHeight="50.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="355.0">
                <children>
-                  <Button fx:id="resetButton" maxHeight="70.0" mnemonicParsing="false" onAction="#switchToPlayScreen" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="reset">
+                  <Button fx:id="resetButton" maxHeight="70.0" mnemonicParsing="false" onAction="#switchToPlayScreenReset" prefHeight="70.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-min-width: 50; -fx-min-height: 50; -fx-max-height: 50; -fx-max-height: 50; -fx-background-color: ffffff; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="reset">
                      <font>
                         <Font name="AXIS Extra Bold" size="10.0" />
                      </font>
@@ -133,7 +133,7 @@
                   <DropShadow />
                </effect>
             </Text>
-            <Button fx:id="continueButton" layoutX="125.0" layoutY="160.0" maxHeight="178.0" maxWidth="178.0" minHeight="178.0" minWidth="178.0" mnemonicParsing="false" onAction="#switchToPlayScreen" style="-fx-background-radius: 89; -fx-background-color: RED;" text="CONTINUE" textFill="WHITE" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0">
+            <Button fx:id="continueButton" layoutX="125.0" layoutY="160.0" maxHeight="178.0" maxWidth="178.0" minHeight="178.0" minWidth="178.0" mnemonicParsing="false" onAction="#switchToPlayScreenCont" style="-fx-background-radius: 89; -fx-background-color: RED;" text="CONTINUE" textFill="WHITE" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0">
                <font>
                   <Font name="AXIS Extra Bold" size="25.0" />
                </font>

@@ -4,20 +4,33 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-// import java.util.ArrayList;
+import java.io.*;
+import java.util.ArrayList;
 
-public class StickHeroMain extends Application{
+public class StickHeroMain extends Application implements Serializable{
 
-    // private ArrayList<Player> playerList;
+    private static ArrayList<Player> playerList = new ArrayList<>();
+
+    public static ArrayList<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public static void setPlayerList(ArrayList<Player> playerList) {
+        StickHeroMain.playerList = playerList;
+    }
+
     // private Player currentPlayer;
     // private Stick gameStick;
     // private Platform gamePlatform;
     // private int platformSpacing;
     private Stage stage;
 
-    public void addNewPlayer(){
+    public static void addNewPlayer(Player player){
+        playerList.add(player);
 
+    }
+    public static void removePlayer(Player player){
+        playerList.remove(player);
     }
     public void newGame(){
 
@@ -42,8 +55,38 @@ public class StickHeroMain extends Application{
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         launch();
+    }
+
+    public static void Serialize(ArrayList<Player> playerList) throws IOException {
+        //serialize to savedGames.txt in resources
+        ObjectOutputStream out = null;
+        try{
+            out = new ObjectOutputStream(new FileOutputStream("src/main/resources/com/example/stickhero_cse201/savedGames.txt"));
+            out.writeObject(playerList);
+        }
+        finally{
+            if (out != null) out.close();
+        }
+    }
+
+    public static void Deserialize() throws IOException, ClassNotFoundException {
+        //deserialize from savedGames.txt in resources
+        ObjectInputStream in = null;
+        ArrayList<Player> playerList2 = null;
+        try{
+            in = new ObjectInputStream(new FileInputStream("src/main/resources/com/example/stickhero_cse201/savedGames.txt"));
+            playerList2 = (ArrayList<Player>) in.readObject();
+        }
+        finally{
+            if(in != null) in.close();
+        }
+        for(Player player: playerList2){
+            System.out.println(player.getScore());
+            addNewPlayer(player);
+        }
+        
     }
 
 

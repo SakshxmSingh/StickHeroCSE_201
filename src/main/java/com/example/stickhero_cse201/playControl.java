@@ -92,10 +92,18 @@ public class playControl {
 
     private boolean fallBool = false;
 
+    public void initialise(){
+        perfect.setTextAlignment(TextAlignment.CENTER);
+        perfect.setVisible(false);
+        score.setText(String.valueOf(correct));
+    }
+
     @FXML
     private void onClick(MouseEvent event) throws InterruptedException {
         perfect.setVisible(false);
+        score.setText(String.valueOf(correct));
         if (count == 0) {
+
             Timeline timeline = new Timeline();
 
             // Define the keyframe with the desired duration and endY value
@@ -230,6 +238,7 @@ public class playControl {
                                             platformMove.stop();
                                             if(fallBool){
                                                 try {
+                                                    System.out.println("failing1");
                                                     switchToFailScreen(root);
                                                 } catch (IOException e) {
                                                     throw new RuntimeException(e);
@@ -369,6 +378,7 @@ public class playControl {
     }
     @FXML
     private void switchToFailScreen(Parent root) throws IOException {
+        System.out.println("failing2");
         Stage stage = (Stage) ((Node) root).getScene().getWindow(); // Get the existing stage
         root = FXMLLoader.load(getClass().getResource("failed.fxml"));
         Scene scene = new Scene(root);

@@ -83,7 +83,7 @@
             </Button>
          </children>
       </VBox>
-      <Button fx:id="playButton" layoutX="181.0" layoutY="268.0" maxHeight="238.0" maxWidth="238.0" mnemonicParsing="false" onAction="#switchToPlayScreen" prefHeight="238.0" prefWidth="238.0" style="-fx-background-radius: 119; -fx-background-color: FF0000; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="PLAY!" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="181.0">
+      <Button fx:id="playButton" layoutX="181.0" layoutY="268.0" maxHeight="238.0" maxWidth="238.0" mnemonicParsing="false" onAction="#switchToPlayScreenReset" prefHeight="238.0" prefWidth="238.0" style="-fx-background-radius: 119; -fx-background-color: FF0000; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);" text="PLAY!" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="181.0">
          <font>
             <Font name="AXIS Extra Bold" size="40.0" />
          </font>
