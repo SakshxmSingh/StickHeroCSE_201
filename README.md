@@ -1,5 +1,6 @@
 
 # Stick Hero Game
+- Group 1 : Saksham Singh and Sidhartha Garg
 - for CSE201 Advanced Programming at IIITD
 
 This is a Java implementation of the Stick Hero game using JavaFX.
