@@ -62,6 +62,4 @@ The game uses Java serialization to save and load game states. When you save a g
 - Sidhartha Garg (2022499) [GitHub](https://www.github.com/GargSidhartha)
 
 All the work was collectively and equally done by both authors.
-```
 
-Feel free to copy and use this Markdown text for your README.md file, adding the emojis to make it more engaging and visually appealing.
