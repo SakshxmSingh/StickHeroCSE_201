@@ -3,6 +3,8 @@
 - CSE201 Advanced Programming at IIITD
 
 This is a Java implementation of the Stick Hero game using JavaFX.
+![image](https://github.com/SakshxmSingh/StickHeroCSE_201/assets/116972737/47f0af01-e39d-47ec-9c61-af4e8de32baa)
+
 
 ## Getting Started 🚀
 
